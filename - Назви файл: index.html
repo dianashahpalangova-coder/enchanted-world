@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Зачарований світ — Вхід</title>
+  <style>
+    body, html {
+      margin: 0; padding: 0;
+      height: 100%; overflow: hidden;
+      font-family: sans-serif; color: white;
+    }
+    .video-bg {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; z-index: -1;
+    }
+    .overlay {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      padding: 2rem; box-sizing: border-box;
+    }
+    .box {
+      background: rgba(0,0,0,0.7);
+      padding: 2rem; border-radius: 10px;
+      max-width: 600px; text-align: center;
+    }
+    button {
+      margin-top: 1rem; padding: 0.5rem 1rem;
+      font-size: 1rem; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <video class="video-bg" autoplay muted loop>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="overlay">
+    <div class="box">
+      <h2>Ласкаво просимо до Зачарованого світу</h2>
+      <p>Перед початком, ознайомтесь з нашою політикою користування. Натискаючи "Погоджуюсь", ви приймаєте умови.</p>
+      <input type="checkbox" id="agree">
+      <label for="agree">Я погоджуюсь з політикою</label><br>
+      <button onclick="proceed()">Продовжити</button>
+    </div>
+  </div>
+
+  <script>
+    function proceed() {
+      const checkbox = document.getElementById('agree');
+      if (checkbox.checked) {
+        window.location.href = "main.html";
+      } else {
+        alert("Поставте галочку, щоб продовжити.");
+      }
+    }
+  </script>
+
+</body>
+</html>
